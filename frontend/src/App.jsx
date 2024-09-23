@@ -5,7 +5,7 @@ import { Home } from "./pages/Home";
 // import { Transfer } from "./pages/Transfer";
 import { Dashboard } from "./pages/Dashboard";
 import { Send } from "./pages/Send";
-import Stars from "./components/Particles";
+import ParticlesComponent from "./components/Particles"
 
 function App() {
   return (

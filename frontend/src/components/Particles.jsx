@@ -7,7 +7,7 @@ import { loadSlim } from "@tsparticles/slim"; // if you are going to use `loadSl
 
 
 
-export const ParticlesComponent = (props) => {
+const ParticlesComponent = (props) => {
 
   const [init, setInit] = useState(false);
   // this should be run only once per application lifetime
@@ -105,3 +105,4 @@ export const ParticlesComponent = (props) => {
   return <Particles id={props.id} init={particlesLoaded} options={options} />; 
 };
 
+export default ParticlesComponent
