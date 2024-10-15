@@ -7,6 +7,8 @@ import { useNavigate } from "react-router-dom"
 import { useState, useEffect } from "react"
 
 export const Send = () => {
+   const API_URL = import.meta.env.VITE_API_URL; // Use import.meta.env for Vite
+
     const [amount, setAmount] = useState("");
     const [errorMessage, setErrorMessage] = useState("");
     const navigate = useNavigate();
@@ -21,7 +23,7 @@ export const Send = () => {
         try {
             // Send transfer request
             const response = await axios.post(
-                "http://localhost:3000/api/v1/account/transfer",
+                `${API_URL}/api/v1/account/transfer`,
                 {
                     amount: parseFloat(amount), // ensure amount is a number
                     to: recipientId, // pass the recipient userId

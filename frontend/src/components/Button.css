@@ -56,7 +56,7 @@
 
 button {
     --color-dark: #110d1a;
-    --color-primary: #ffffff;
+    --color-primary: #2fff7f;
     accent-color: var(--color-primary);
   }
   
@@ -110,6 +110,7 @@ button {
   
   .c-btn:hover span {
     color: var(--color-dark);
+    /* color: #ffff */
   }
   .c-btn:hover:after {
     scale: 1.5 1.5;

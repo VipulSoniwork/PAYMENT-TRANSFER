@@ -8,6 +8,8 @@ import { useNavigate } from "react-router-dom"
 import { useState } from "react"
 
 export const Signin = () => {
+   const API_URL = import.meta.env.VITE_API_URL; // Use import.meta.env for Vite
+
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
@@ -25,7 +27,8 @@ return (<div className=" flex justify-center">
                 {errorMessage && <div className="text-red-500 mb-2 font-semibold">{errorMessage}</div>}
                 <GlowingButton label="Log In" to={async () => {
                     try{
-                        const response = await axios.post("http://localhost:3000/api/v1/user/signin", {
+                        const response = await axios.post(
+                            `${API_URL}/api/v1/user/signin`, {
                             username,
                             password
                         })

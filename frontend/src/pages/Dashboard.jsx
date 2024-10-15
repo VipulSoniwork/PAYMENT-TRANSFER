@@ -4,7 +4,10 @@ import { Users } from "../components/Users";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
+
 export const Dashboard = () => {
+   const API_URL = import.meta.env.VITE_API_URL; // Use import.meta.env for Vite
+
     const [user, setUser] = useState(null);
     const [balance, setBalance] = useState(0);
 
@@ -12,7 +15,7 @@ export const Dashboard = () => {
         const fetchData = async () => {
             try {
                 // Fetch the current logged-in user details
-                const userResponse = await axios.get("http://localhost:3000/api/v1/user/me", {
+                const userResponse = await axios.get(`${API_URL}/api/v1/user/me`, {
                     headers: {
                         Authorization: `Bearer ${localStorage.getItem("token")}`, // assuming token is stored in localStorage
                     },
@@ -20,7 +23,7 @@ export const Dashboard = () => {
                 setUser(userResponse.data);
 
                 // Fetch balance
-                const balanceResponse = await axios.get("http://localhost:3000/api/v1/account/balance", {
+                const balanceResponse = await axios.get(`${API_URL}/api/v1/account/balance`, {
                     headers: {
                         Authorization: `Bearer ${localStorage.getItem("token")}`,
                     },

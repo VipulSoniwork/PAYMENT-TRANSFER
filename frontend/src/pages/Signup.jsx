@@ -8,6 +8,8 @@ import { useNavigate } from "react-router-dom"
 import { GlowingButton } from "../components/GlowingButton"
 
 export const Signup = () => {
+  const API_URL = import.meta.env.VITE_API_URL; // Use import.meta.env for Vite
+
 
   const [firstname, setFirstName] = useState("");
   const [lastname, setLastName] = useState("");
@@ -39,7 +41,9 @@ export const Signup = () => {
         {errorMessage && <div className="text-red-500 mb-2 font-semibold">{errorMessage}</div>}
         <GlowingButton label="Sign Up" to={async () => {
           try {
-            const response = await axios.post("http://localhost:3000/api/v1/user/signup", {
+
+            
+            const response = await axios.post(`${API_URL}/api/v1/user/signup`, {
               username,
               firstname,
               lastname,
